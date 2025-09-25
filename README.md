@@ -1,7 +1,7 @@
 <h1 align="center">Pokédex Interativa</h1>
 <p align="center">Este projeto foi desenvolvido como parte de um desafio técnico para a vaga de Pessoa Desenvolvedora Front End Júnior.</p>
 
-<p align="center">Para acessar o projeto acesse esse link -> https://pokedex-sage-omega.vercel.app</p>
+<p align="center">Para acessar o projeto clique neste link -> https://pokedex-sage-omega.vercel.app</p>
 
 <h2 align="center">Tabela de conteúdos</h2>
 
