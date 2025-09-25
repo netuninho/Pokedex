@@ -35,3 +35,51 @@
     color: inherit;
   }
 }
+
+.container {
+  padding: 0 2.0625rem;
+  font-family: $font-dm-sans;
+
+  @include max-mobile {
+    padding: 0 1rem;
+  }
+
+  .search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem 0;
+
+    &__input {
+      width: 100%;
+      max-width: 450px;
+      padding: .8rem 1.5rem .8rem 2rem;
+      background-color: $color-gray-light;
+      border: 1px solid $color-gray-light;
+      border-radius: 20px;
+
+      &::placeholder {
+        color: $color-gray-dark;
+      }
+
+      @include max-mobile {
+        padding: 0.8rem 1rem 0.8rem 1rem;
+      }
+
+      @include tablet {
+        font-size: $font-size-md;
+      }
+
+      @include laptop {
+        max-width: 720px;
+      }
+    }
+
+    &__btn {
+      margin-left: -4rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}
