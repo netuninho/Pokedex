@@ -258,7 +258,6 @@
 
     &__numbers {
       display: flex;
-      gap: .5rem;
       cursor: pointer;
       font-size: $font-size-lg;
     }
@@ -283,6 +282,7 @@
       cursor: pointer;
       color: $color-black;
       font-size: $font-size-lg;
+      white-space: nowrap;
     }
 
     &__input {
@@ -290,6 +290,14 @@
       border: 1px solid $color-black;
       border-radius: 7px;
       padding: 0.5rem 0.75rem;
+    }
+
+    @include max-mobile {
+
+      .pagination__prev--hiden,
+      .pagination__next--hiden {
+        display: none;
+      }
     }
   }
 }
