@@ -82,3 +82,7 @@ export function resetSearch() {
   searchResults = [];
   isSearching = false;
 }
+
+export function getSearchResults() {
+  return searchResults;
+}

@@ -2,7 +2,7 @@ import '../scss/main.scss';
 import { createPokemonCard } from './dom.js';
 import { fetchPokemons } from './api.js';
 import { renderPagination } from './pagination.js';
-import { searchPokemon, renderSearchResults, resetSearch, getIsSearching } from './search.js';
+import { searchPokemon, renderSearchResults, resetSearch, getIsSearching, getSearchResults } from './search.js';
 
 const container = document.getElementById('pokemon-list');
 const paginationNumbers = document.getElementById('page-buttons');
@@ -25,21 +25,15 @@ let currentPage = 1;
 const limit = 18;
 let totalPokemons = 0;
 
-// --- FUNÇÕES --- //
-
-// Renderiza a lista principal de pokémons
 async function renderPokemons(page = 1) {
   const offset = (page - 1) * limit;
   loading.style.display = 'block';
   try {
     const { pokemons, total } = await fetchPokemons(offset, limit);
     totalPokemons = total;
-
     container.innerHTML = '';
     pokemons.forEach(pokemon => createPokemonCard(pokemon, container));
-
     loading.style.display = 'none';
-
     renderPagination(currentPage, totalPokemons, limit, paginationNumbers, prevBtn, nextBtn, (page) => {
       currentPage = page;
       renderPokemons(page);
@@ -52,7 +46,8 @@ async function renderPokemons(page = 1) {
 
 function handleSearchPageChange(page) {
   currentPage = page;
-  renderSearchResults(container, paginationNumbers, prevBtn, nextBtn, currentPage, limit, handleSearchPageChange);
+  const results = getSearchResults();
+  renderSearchResults(container, paginationNumbers, prevBtn, nextBtn, currentPage, limit, handleSearchPageChange, results);
 }
 
 searchBtn.addEventListener('click', (e) => {
@@ -89,9 +84,8 @@ prevBtn.addEventListener('click', () => {
 
 nextBtn.addEventListener('click', () => {
   const totalPages = getIsSearching()
-    ? Math.ceil(totalPokemons / limit)
+    ? Math.ceil(getSearchResults().length / limit)
     : Math.ceil(totalPokemons / limit);
-
   if (currentPage < totalPages) {
     currentPage++;
     if (getIsSearching()) {
