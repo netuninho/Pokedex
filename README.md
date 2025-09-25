@@ -23,7 +23,7 @@ A aplicação consome dados da [PokéAPI](https://pokeapi.co/), exibe os Pokémo
 ### Funcionalidades
 
 - **Listagem de Pokémon**: Exibe uma lista de Pokémon, carregados dinamicamente da PokéAPI.
-- **Busca**: Permite pesquisar Pokémon por **nome** (pt/en) ou por **tipo** (pt/en).
+- **Busca**: Permite pesquisar Pokémon por **nome** ou por **tipo** (com ou sem acento).
 - **Paginação**: Exibição de Pokémon em páginas, com botões de navegação (anterior, próximo e números).
 - **Tipos em português**: Os tipos dos Pokémon são exibidos em português.
 - **Loader**: Exibe uma animação de carregamento durante requisições.
@@ -35,7 +35,7 @@ A aplicação consome dados da [PokéAPI](https://pokeapi.co/), exibe os Pokémo
 1. **Abra o site**: Ao carregar, a página exibe a primeira listagem de Pokémon.
 2. **Navegue entre as páginas**: Use os botões de paginação para avançar ou voltar.
 3. **Pesquise por nome**: Digite o nome de um Pokémon e pressione **Enter** ou clique no botão de busca.
-4. **Pesquise por tipo**: Digite o tipo (ex.: fogo, água, planta ou fire, water, grass) para filtrar os resultados.
+4. **Pesquise por tipo**: Digite o tipo (ex.: fogo, água, eletrico) para filtrar os resultados.
 5. **Volte para a Home**: Clique no botão **Home** ou no **Logo** para limpar os filtros e retornar à listagem inicial.
 
 
