@@ -2,9 +2,12 @@ import '../scss/main.scss';
 import { createPokemonCard } from './dom.js';
 import { fetchPokemons } from './api.js';
 import { renderPagination } from './pagination.js';
+import { searchPokemon, renderSearchResults, getIsSearching, resetSearch } from './search.js';
 
 const container = document.getElementById('pokemon-list');
 const paginationNumbers = document.getElementById('page-buttons');
+const searchInput = document.getElementById('search-input');
+const searchBtn = document.getElementById('search-btn');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
 
@@ -29,6 +32,31 @@ async function renderPokemons(page = 1) {
     console.error('Erro ao buscar pokémons:', error);
   }
 }
+
+searchBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  const query = searchInput.value.trim();
+  if (query) {
+    searchPokemon(query, container, paginationNumbers, prevBtn, nextBtn, currentPage, limit, (page) => {
+      currentPage = page;
+      renderSearchResults(container, paginationNumbers, prevBtn, nextBtn, currentPage, limit, (p) => {
+        currentPage = p;
+        renderSearchResults(container, paginationNumbers, prevBtn, nextBtn, currentPage, limit, arguments.callee);
+      });
+    });
+  } else {
+    resetSearch();
+    currentPage = 1;
+    renderPokemons(currentPage);
+  }
+});
+
+searchInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    searchBtn.click();
+  }
+});
 
 prevBtn.addEventListener('click', () => {
   if (currentPage > 1) {
