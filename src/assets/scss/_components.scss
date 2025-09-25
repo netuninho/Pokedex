@@ -289,10 +289,6 @@
     color: $color-black;
     text-decoration: none;
 
-    &:hover {
-      text-decoration: underline;
-    }
-
     &:is(:link, :visited, :hover, :active) {
       color: $color-black;
     }
@@ -304,5 +300,26 @@
     justify-content: center;
     align-items: center;
     gap: .3rem;
+  }
+}
+
+.--underline {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 1px;
+    background-color: $color-black;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
   }
 }
