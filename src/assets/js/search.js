@@ -1,4 +1,3 @@
-import { fetchPokemons } from './api.js';
 import { createPokemonCard } from './dom.js';
 import { renderPagination } from './pagination.js';
 import { typeMapPt, normalizeString } from './types.js';

@@ -13,13 +13,11 @@ const nextBtn = document.getElementById('next');
 const homeLink = document.getElementById('home');
 
 const loading = document.createElement('p');
-loading.id = 'loading';
-loading.textContent = 'Carregando...';
-loading.style.textAlign = 'center';
-loading.style.margin = '2rem 0';
-loading.style.fontWeight = '700';
+loading.classList.add('--loading');
+loading.textContent = 'Carregando';
 loading.style.display = 'none';
 container.parentNode.insertBefore(loading, container);
+
 
 let currentPage = 1;
 const limit = 18;
