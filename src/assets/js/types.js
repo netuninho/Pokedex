@@ -1,0 +1,20 @@
+export const typeMapPt = {
+  fire: 'Fogo',
+  water: 'Água',
+  grass: 'Planta',
+  electric: 'Elétrico',
+  ice: 'Gelo',
+  fighting: 'Lutador',
+  poison: 'Venenoso',
+  ground: 'Terrestre',
+  flying: 'Voador',
+  psychic: 'Psíquico',
+  bug: 'Inseto',
+  rock: 'Pedra',
+  ghost: 'Fantasma',
+  dragon: 'Dragão',
+  dark: 'Sombrio',
+  steel: 'Aço',
+  fairy: 'Fada',
+  normal: 'Normal'
+};
