@@ -276,6 +276,21 @@
         border: none;
       }
     }
+
+    &__dots {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: $color-black;
+      font-size: $font-size-lg;
+    }
+
+    &__input {
+      width: 2rem;
+      border: 1px solid $color-black;
+      border-radius: 7px;
+      padding: 0.5rem 0.75rem;
+    }
   }
 }
 
