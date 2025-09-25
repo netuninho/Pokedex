@@ -1,3 +1,37 @@
-h1 {
-  color: $color-black;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $color-gray-light;
+  padding: 1.2rem;
+  font-family: $font-dm-sans;
+
+  &__nav {
+    padding-right: 2.2rem;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    list-style: none;
+
+    &--item {
+      font-size: $font-size-lg;
+      color: $color-black;
+      cursor: pointer;
+
+      &:first-child {
+        background-color: $color-white;
+        padding: .8rem;
+        border-radius: 8px;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+  }
 }
