@@ -1,3 +1,4 @@
+import { fetchPokemons } from './api.js';
 import { createPokemonCard } from './dom.js';
 import { renderPagination } from './pagination.js';
 import { typeMapPt, normalizeString } from './types.js';
@@ -21,6 +22,7 @@ export function renderSearchResults(container, paginationNumbers, prevBtn, nextB
   const pagePokemons = searchResults.slice(start, end);
 
   pagePokemons.forEach(p => createPokemonCard(p, container));
+
   renderPagination(currentPage, searchResults.length, limit, paginationNumbers, prevBtn, nextBtn, handlePageChange);
 }
 
@@ -40,7 +42,6 @@ export async function searchPokemon(query, container, paginationNumbers, prevBtn
         types: pokeData.types.map(t => t.type.name),
         image: pokeData.sprites.other['official-artwork'].front_default
       });
-
       renderSearchResults(container, paginationNumbers, prevBtn, nextBtn, currentPage, limit, handlePageChange);
       return;
     }
