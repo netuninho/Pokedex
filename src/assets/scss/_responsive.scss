@@ -1,0 +1,66 @@
+// Variáveis de breakpoints
+$breakpoints: (
+  mobile: 480px,
+  tablet: 768px,
+  laptop: 1024px,
+  desktop: 1280px,
+  large: 1440px
+);
+
+// Mixin para media queries
+@mixin respond($device, $type: min) {
+  $size: map-get($breakpoints, $device);
+
+  @if $size {
+    @if $type ==min {
+      @media (min-width: $size) {
+        @content;
+      }
+    }
+
+    @else if $type ==max {
+      @media (max-width: $size) {
+        @content;
+      }
+    }
+
+    @else {
+      @warn "Tipo de media query inválido: `#{$type}`!";
+    }
+  }
+
+  @else {
+    @warn "Breakpoint `#{$device}` não encontrado!";
+  }
+}
+
+// Mixins prontos
+@mixin max-mobile {
+  @include respond(mobile, max) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @include respond(tablet) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @include respond(laptop) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @include respond(desktop) {
+    @content;
+  }
+}
+
+@mixin large {
+  @include respond(large) {
+    @content;
+  }
+}
