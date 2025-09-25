@@ -344,6 +344,14 @@
 
   }
 
+  &__icon {
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
   span {
     display: flex;
     justify-content: center;
