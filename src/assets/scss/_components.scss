@@ -283,13 +283,37 @@
       color: $color-black;
       font-size: $font-size-lg;
       white-space: nowrap;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
     }
 
     &__input {
       width: 2rem;
+      text-align: center;
+      background: none;
       border: 1px solid $color-black;
       border-radius: 7px;
-      padding: 0.5rem 0.75rem;
+      font-weight: 500;
+      color: $color-black;
+      outline: none;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+      -webkit-appearance: textfield;
+      -moz-appearance: textfield;
+      appearance: textfield;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      &:focus {
+        border-color: $color-black;
+      }
     }
 
     @include max-mobile {
