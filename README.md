@@ -1,7 +1,7 @@
 <h1 align="center">Pokédex Interativa</h1>
 <p align="center">Este projeto foi desenvolvido como parte de um desafio técnico para a vaga de Pessoa Desenvolvedora Front End.</p>
 
-Para acessar o projeto clique [aqui](https://gerador-senha-iota.vercel.app)
+Para acessar o projeto clique [aqui](https://pokedex-sage-omega.vercel.app).
 
 ### Tabela de conteúdos
 
