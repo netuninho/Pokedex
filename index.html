@@ -8,6 +8,66 @@
   <title>Pokedex</title>
 </head>
   <body>
+      <header class="header">
+    <div class="header__logo">
+      <a href="/" id="home"><img src="/src/assets/img/logo-pokedex.png" alt="Logo Pokedex"></a>
+    </div>
+    <nav class="header__nav">
+      <ul class="header__list">
+        <li class="header__list--item">
+          <a class="header__link" href="/" id="home">Home</a>
+        </li>
+        <li class="header__list--item">
+          <a class="header__link" href="https://pokeapi.co" target="_blank">Pokédex</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main class="container">
+    <form class="search">
+      <input id="search-input" class="search__input" type="text"
+        placeholder="Faça uma busca pelo nome do pokémon ou tipo" />
+      <button id="search-btn" class="search__btn" type="button" aria-label="Pesquisar">
+        <img class="search__btn-image" src="/src/assets/img/icone-lupa.svg" alt="Ícone de lupa">
+      </button>
+    </form>
+
+    <section class="pokemon__list" id="pokemon-list">
+      <!--Aqui entra os cards-->
+    </section>
+
+    <div id="pagination" class="pagination">
+      <button id="prev" class="pagination__prev">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="20" y1="12" x2="4" y2="12"></line>
+          <polyline points="10 6 4 12 10 18"></polyline>
+        </svg>
+        Anterior
+      </button>
+      <div id="page-buttons" class="pagination__numbers"></div>
+      <button id="next" class="pagination__next">
+        Próximo
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <polyline points="14 6 20 12 14 18"></polyline>
+        </svg>
+      </button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <span>
+      <p>Code with heart. Design with purpose</p>
+      <img width="10" class="footer__icon" src="/src/assets/img/icone-coracao.svg" alt="Icone de coração">
+    </span>
+    <br>
+    <p>
+      © Copyright 2025. Produzido por
+      <a class="footer__link" href="https://github.com/netuninho" target="_blank">Manuela Silva</a>
+    </p>
+  </footer>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
