@@ -1,3 +1,5 @@
+// Função para renderizar a paginação
+
 export function renderPagination(currentPage, totalItems, limit, container, prevBtn, nextBtn, onPageChange) {
   const totalPages = Math.ceil(totalItems / limit);
   container.innerHTML = '';

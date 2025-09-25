@@ -1,3 +1,5 @@
+// Estilos para componentes específicos
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -302,6 +304,8 @@
     gap: .3rem;
   }
 }
+
+// Componentes utilitários
 
 .--underline {
   position: relative;

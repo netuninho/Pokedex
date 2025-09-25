@@ -1,3 +1,5 @@
+// Função para buscar pokémons da API
+
 export async function fetchPokemons(offset, limit) {
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`);
   const data = await res.json();

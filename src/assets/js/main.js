@@ -4,6 +4,7 @@ import { fetchPokemons } from './api.js';
 import { renderPagination } from './pagination.js';
 import { searchPokemon, renderSearchResults, resetSearch, getIsSearching, getSearchResults } from './search.js';
 
+// Elementos DOM
 const container = document.getElementById('pokemon-list');
 const paginationNumbers = document.getElementById('page-buttons');
 const searchInput = document.getElementById('search-input');
@@ -12,17 +13,19 @@ const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
 const homeLink = document.getElementById('home');
 
+// Elemento de carregamento
 const loading = document.createElement('p');
 loading.classList.add('--loading');
 loading.textContent = 'Carregando';
 loading.style.display = 'none';
 container.parentNode.insertBefore(loading, container);
 
-
+// Estado da aplicação
 let currentPage = 1;
 const limit = 18;
 let totalPokemons = 0;
 
+// Função para renderizar pokémons
 async function renderPokemons(page = 1) {
   const offset = (page - 1) * limit;
   loading.style.display = 'block';
@@ -42,12 +45,14 @@ async function renderPokemons(page = 1) {
   }
 }
 
+// Função para lidar com a mudança de página na busca
 function handleSearchPageChange(page) {
   currentPage = page;
   const results = getSearchResults();
   renderSearchResults(container, paginationNumbers, prevBtn, nextBtn, currentPage, limit, handleSearchPageChange, results);
 }
 
+// Busca de pokémons
 searchBtn.addEventListener('click', (e) => {
   e.preventDefault();
   const query = searchInput.value.trim();
@@ -62,6 +67,7 @@ searchBtn.addEventListener('click', (e) => {
   }
 });
 
+// Permitir busca ao pressionar Enter
 searchInput.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
     e.preventDefault();
@@ -69,6 +75,7 @@ searchInput.addEventListener('keydown', (e) => {
   }
 });
 
+// Navegação de página - anterior
 prevBtn.addEventListener('click', () => {
   if (currentPage > 1) {
     currentPage--;
@@ -80,6 +87,7 @@ prevBtn.addEventListener('click', () => {
   }
 });
 
+// Navegação de página - próxima
 nextBtn.addEventListener('click', () => {
   const totalPages = getIsSearching()
     ? Math.ceil(getSearchResults().length / limit)
@@ -94,6 +102,7 @@ nextBtn.addEventListener('click', () => {
   }
 });
 
+// Link para a página inicial
 homeLink.addEventListener('click', (e) => {
   e.preventDefault();
   searchInput.value = '';
@@ -102,4 +111,5 @@ homeLink.addEventListener('click', (e) => {
   renderPokemons(currentPage);
 });
 
+// Renderização inicial
 renderPokemons(currentPage);

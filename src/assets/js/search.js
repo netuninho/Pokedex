@@ -2,9 +2,11 @@ import { createPokemonCard } from './dom.js';
 import { renderPagination } from './pagination.js';
 import { typeMapPt, normalizeString } from './types.js';
 
+// Estado da busca
 let searchResults = [];
 let isSearching = false;
 
+// Função para renderizar resultados da busca
 export function renderSearchResults(container, paginationNumbers, prevBtn, nextBtn, currentPage, limit, handlePageChange) {
   container.innerHTML = '';
 
@@ -25,12 +27,14 @@ export function renderSearchResults(container, paginationNumbers, prevBtn, nextB
   renderPagination(currentPage, searchResults.length, limit, paginationNumbers, prevBtn, nextBtn, handlePageChange);
 }
 
+// Função para buscar pokémons por nome ou tipo
 export async function searchPokemon(query, container, paginationNumbers, prevBtn, nextBtn, currentPage, limit, handlePageChange) {
   query = query.toLowerCase();
   isSearching = true;
   searchResults = [];
   currentPage = 1;
 
+  // Tentar buscar por nome primeiro
   try {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${query}`);
     if (res.ok) {
@@ -50,6 +54,7 @@ export async function searchPokemon(query, container, paginationNumbers, prevBtn
     key => key === query || normalizeString(typeMapPt[key]) === normalizeString(query)
   );
 
+  // Se não encontrou por nome, tentar por tipo
   if (typeEn) {
     const res = await fetch(`https://pokeapi.co/api/v2/type/${typeEn}`);
     const data = await res.json();
@@ -73,15 +78,19 @@ export async function searchPokemon(query, container, paginationNumbers, prevBtn
   renderSearchResults(container, paginationNumbers, prevBtn, nextBtn, currentPage, limit, handlePageChange);
 }
 
+// Função para verificar se está em modo de busca
 export function getIsSearching() {
   return isSearching;
 }
 
+// Função para resetar a busca
 export function resetSearch() {
   searchResults = [];
   isSearching = false;
 }
 
+
+// Função para obter os resultados da busca
 export function getSearchResults() {
   return searchResults;
 }

@@ -1,5 +1,6 @@
 import { typeMapPt } from './types.js';
 
+// Função para criar o card de um pokémon
 export function createPokemonCard(pokemon, container) {
   const card = document.createElement('div');
   card.classList.add('pokemon__card');

@@ -1,3 +1,4 @@
+// Mapeamento dos tipos de pokémon EN -> PT
 export const typeMapPt = {
   fire: 'Fogo',
   water: 'Água',
@@ -19,6 +20,7 @@ export const typeMapPt = {
   normal: 'Normal'
 };
 
+// Função para normalizar strings (remover acentos e converter para minúsculas)
 export function normalizeString(str) {
   return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 }
